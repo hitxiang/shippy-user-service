@@ -14,7 +14,7 @@ spec:
     spec:
         containers:
         - name: user-service
-          image: eu.gcr.io/shippy-freight/user:latest
+          image: %%REMOTE_IMAGE_PATH%%
           imagePullPolicy: Always
           command: [
             "./shippy-user-service",
@@ -30,8 +30,6 @@ spec:
             value: "password"
           - name: DB_USER
             value: "postgres"
-          - name: UPDATED_AT
-            value: "{{ UPDATED_AT }}"
           ports:
           - containerPort: 8080
             name: user-port
